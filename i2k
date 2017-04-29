@@ -1,5 +1,7 @@
 #!/bin/bash
-/bin/cp "$2" "$1"
+[ -z "$2" ] && exit 0
+[ -z "$1" ] && exit 0
+/bin/cp "$2" "$1" || exit 0
 bin/igc2kmz.py -i "$1" -o "$1".kmz || true
 rm "$2" "$1" || true
 exit 0
