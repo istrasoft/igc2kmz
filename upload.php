@@ -4,7 +4,7 @@ if(isset($_POST['btn-upload']))
         $pic = rand(1000,100000)."-".$_FILES['pic']['name'];
         $pic_loc = $_FILES['pic']['tmp_name'];
         $folder="uploaded_files/";
-        $cmd = "/usr/bin/igc2kmz $folder$pic $pic_loc";
+        $cmd = "./i2k $folder$pic $pic_loc";
         system($cmd,$ret_val);
         echo "<meta http-equiv=\"refresh\" content=\"1;URL=index.php\">";
 }
