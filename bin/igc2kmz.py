@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 #
 #   IGC to Google Earth converter
 #   Copyright (C) 2008  Tom Payne
