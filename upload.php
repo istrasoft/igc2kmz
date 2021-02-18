@@ -8,7 +8,15 @@ if(isset($_POST['btn-upload']))
         system($cmd,$ret_val);
         echo "<meta http-equiv=\"refresh\" content=\"1;URL=index.php\">";
 }
+if(isset($_POST['btn-url-up']))
+{
+	$url_in = $_POST["pic"];
+	$cmd = "./url-up $url_in";
+        system($cmd,$ret_val);
+        echo "<meta http-equiv=\"refresh\" content=\"1;URL=index.php\">";
+}
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,9 +24,16 @@ if(isset($_POST['btn-upload']))
 <title>IGC to KMZ converter</title>
 </head>
 <body>
-Upload IGC tracklog
+<h4 style="padding-left:10px">Upload IGC tracklog</h4>
 <form action="" method="post" enctype="multipart/form-data">
-<input type="file" name="pic" />
+<div style="padding-left:20px">
+<input type="file" name="pic"/>
 <button type="submit" name="btn-upload">upload</button>
+</div>
+<h4 style="padding-left:10px">Or</h4>
+<div style="padding-left:20px">
+<input type="text" onfocus="this.value=''" value="Paste igc URL here" name="pic"/>
+<button type="submit" name="btn-url-up">upload from URL</button>
+</div>
 </form>
 </body>
