@@ -48,7 +48,8 @@ def add_flight(option, opt, value, parser):
     elif ext.lower() == '.gpx':
         track = GPX(open(value)).track()
     else:
-        raise RuntimeError, 'unsupported file type %s' % repr(ext)
+    #    raise RuntimeError, 'unsupported file type %s' % repr(ext)
+        track = IGC(open(value)).track()
     parser.values.flights.append(Flight(track))
 
 

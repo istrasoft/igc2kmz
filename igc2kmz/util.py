@@ -219,7 +219,7 @@ def pairwise(iterable):
     a, b = itertools.tee(iterable)
     for elem in b:
         break
-    return itertools.izip(a, b)
+    return zip(a, b)
 
 
 def salient(seq, epsilon=0):
