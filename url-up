@@ -1,0 +1,11 @@
+#!/bin/bash
+if echo "$1" | grep -q = ; then
+	export filename=$(/usr/bin/basename "$1" | cut -d "=" -f2)
+else
+	export filename=$(/usr/bin/basename "$1")
+fi
+/usr/bin/wget --referer 'https://www.xcontest.org/' "$1" -O uploaded_files/"$filename"
+bin/igc2kmz.py -i uploaded_files/"$filename" -o uploaded_files/"$filename".kmz || true
+rm uploaded_files/"$filename" || true
+exit 0
+
